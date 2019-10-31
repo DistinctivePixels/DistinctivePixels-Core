@@ -12,8 +12,7 @@ $defaults = array(
 	'client_post_type'      	=> '0',
 	'testimonial_post_type' 	=> '0',
 	'core_widgets' 				=> '0',
-	'buzzpress_blocks' 			=> '0',
-	'distinctpress_blocks' 		=> '0',
+	'milea_blocks' 				=> '0',
 );
 $framework_options = wp_parse_args( get_option('distinctive_core_options'), $defaults);
 
@@ -75,12 +74,8 @@ function distinctivepixels_core_shortcode_register_buttons($buttons) {
 
 require_once( DISTINCTIVEPIXELS_CORE_PATH . 'shortcodes/core_shortcodes.php' );	
 
-if( '1' == $framework_options['distinctpress_blocks'] ){
-	require_once(DISTINCTIVEPIXELS_CORE_PATH . 'page_builder_blocks/distinctpress-pro/page_builder_init.php' );	
-}
-
-if( '1' == $framework_options['buzzpress_blocks'] ){
-	require_once( DISTINCTIVEPIXELS_CORE_PATH . 'page_builder_blocks/buzzpress/page_builder_init.php' );	
+if( '1' == $framework_options['milea_blocks'] ){
+	require_once(DISTINCTIVEPIXELS_CORE_PATH . 'page_builder_blocks/milea/page_builder_init.php' );	
 }
 
 ?>
