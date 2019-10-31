@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Triangle_Hero_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Dual Triangle Backgroud Hero', 'tr-framework' );
+		return esc_html__( 'Dual Triangle Backgroud Hero', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,13 +29,13 @@ class Widget_DistinctivePixels_Triangle_Hero_Block extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content', [
-				'label' => esc_html__( 'Content', 'tr-framework' ),
+				'label' => esc_html__( 'Content', 'distinctivepixels-core' ),
 			]
 		);
 		
 		$this->add_control(
 			'image', [
-				'label'      => __( 'Image', 'tr-framework' ),
+				'label'      => __( 'Image', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -45,7 +45,7 @@ class Widget_DistinctivePixels_Triangle_Hero_Block extends Widget_Base {
 
 		$this->add_control(
 			'image_2', [
-				'label'      => __( 'Image Two', 'tr-framework' ),
+				'label'      => __( 'Image Two', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -55,7 +55,7 @@ class Widget_DistinctivePixels_Triangle_Hero_Block extends Widget_Base {
 
 		$this->add_control(
 			'content', [
-				'label'       => __( 'Content', 'tr-framework' ),
+				'label'       => __( 'Content', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => '',
 				'label_block' => true
@@ -64,7 +64,7 @@ class Widget_DistinctivePixels_Triangle_Hero_Block extends Widget_Base {
 
 		$this->add_control(
 			'scroll_link', [
-				'label'       => __( 'Scroll Mouse Link', 'tr-framework' ),
+				'label'       => __( 'Scroll Mouse Link', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '#start',
 				'label_block' => true

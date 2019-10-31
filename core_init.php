@@ -53,27 +53,6 @@ if( '1' == $framework_options['testimonial_post_type'] ){
 		add_action( 'init', 'create_testimonial_taxonomies');
 }
 
-/* 
-MCE Buttons & SHORTCODES
-*/
-add_action( 'init', 'distinctivepixels_core_shortcode_button' );
-function distinctivepixels_core_shortcode_button() {
-    add_filter("mce_external_plugins", "distinctivepixels_core_shortcode_add_buttons");
-    add_filter('mce_buttons', 'distinctivepixels_core_shortcode_register_buttons');
-}
-
-function distinctivepixels_core_shortcode_add_buttons($plugin_array) {
-    $plugin_array['distinctivepixels_core_shortcode'] = plugins_url( 'shortcodes/assets/js/shortcode-mce.js', __FILE__ );
-    return $plugin_array;
-}
-
-function distinctivepixels_core_shortcode_register_buttons($buttons) {
-    array_push( $buttons, 'open_builder' ); // dropcap', 'recentposts
-    return $buttons;
-}
-
-require_once( DISTINCTIVEPIXELS_CORE_PATH . 'shortcodes/core_shortcodes.php' );	
-
 if( '1' == $framework_options['milea_blocks'] ){
 	require_once(DISTINCTIVEPIXELS_CORE_PATH . 'page_builder_blocks/milea/page_builder_init.php' );	
 }

@@ -8,12 +8,12 @@ class Widget_DistinctivePixels_Process_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'tommusrhodus-process-block';
+		return 'distinctivepixels-process-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Process', 'tr-framework' );
+		return esc_html__( 'Process', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,19 +29,19 @@ class Widget_DistinctivePixels_Process_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Process Content', 'tr-framework' ),
+				'label' => esc_html__( 'Process Content', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Style', 'tr-framework' ),
+				'label'   => __( 'Style', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'card',
 				'label_block' => true,
 				'options' => [
-					'card'								=> esc_html__( 'Card', 'tr-framework' ),
-					'card-dark'							=> esc_html__( 'Card, Dark Background', 'tr-framework' ),
+					'card'								=> esc_html__( 'Card', 'distinctivepixels-core' ),
+					'card-dark'							=> esc_html__( 'Card, Dark Background', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -49,7 +49,7 @@ class Widget_DistinctivePixels_Process_Block extends Widget_Base {
 
 		$this->add_control(
 			'upper_text', [
-				'label'       => __( 'Upper Text', 'tr-framework' ),
+				'label'       => __( 'Upper Text', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -57,7 +57,7 @@ class Widget_DistinctivePixels_Process_Block extends Widget_Base {
 
 		$this->add_control(
 			'title', [
-				'label'       => __( 'Title', 'tr-framework' ),
+				'label'       => __( 'Title', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -65,7 +65,7 @@ class Widget_DistinctivePixels_Process_Block extends Widget_Base {
 
 		$this->add_control(
 			'description', [
-				'label'       => __( 'Description', 'tr-framework' ),
+				'label'       => __( 'Description', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]

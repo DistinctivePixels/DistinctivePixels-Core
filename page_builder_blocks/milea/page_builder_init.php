@@ -19,7 +19,7 @@ add_action('elementor/element/section/section_typo/after_section_end', function(
 	$section->start_controls_section(
 		'section_custom_class',
 		[
-			'label' => __( 'Parallax', 'tr-framework' ),
+			'label' => __( 'Parallax', 'distinctivepixels-core' ),
 			'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 		]
 	);
@@ -27,7 +27,7 @@ add_action('elementor/element/section/section_typo/after_section_end', function(
 	$section->add_control(
 		'enable_parallax',
 		[
-			'label'        => __( 'Add Parallax Effect?', 'tr-framework' ),
+			'label'        => __( 'Add Parallax Effect?', 'distinctivepixels-core' ),
 			'type'         => Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default' => 'no',
@@ -39,7 +39,7 @@ add_action('elementor/element/section/section_typo/after_section_end', function(
 	$section->start_controls_section(
 		'section_has_dark_bg',
 		[
-			'label' => __( 'Has Dark Background?', 'tr-framework' ),
+			'label' => __( 'Has Dark Background?', 'distinctivepixels-core' ),
 			'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 		]
 	);
@@ -47,7 +47,7 @@ add_action('elementor/element/section/section_typo/after_section_end', function(
 	$section->add_control(
 		'enable_dark_bg',
 		[
-			'label'        => __( 'Section Has Dark Background?', 'tr-framework' ),
+			'label'        => __( 'Section Has Dark Background?', 'distinctivepixels-core' ),
 			'type'         => Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default' => 'no',
@@ -132,6 +132,8 @@ class ElementorCustomElement {
         require_once plugin_dir_path(__FILE__).'progress-circle-block.php';
         require_once plugin_dir_path(__FILE__).'section-title-block.php';
         require_once plugin_dir_path(__FILE__).'service-box-block.php';
+        require_once plugin_dir_path(__FILE__).'speaker-list-block.php';
+        require_once plugin_dir_path(__FILE__).'team-feed-block.php';
         require_once plugin_dir_path(__FILE__).'testimonial-carousel-block.php';
         require_once plugin_dir_path(__FILE__).'triangle-hero-block.php';
         require_once plugin_dir_path(__FILE__).'vertical-tabbed-accordion-block.php';

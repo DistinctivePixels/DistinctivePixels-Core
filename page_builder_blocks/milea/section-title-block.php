@@ -8,12 +8,12 @@ class Widget_DistinctivePixels_Section_Title_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'tommusrhodus-section-title-block';
+		return 'distinctivepixels-section-title-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Section Title', 'tr-framework' );
+		return esc_html__( 'Section Title', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,26 +29,26 @@ class Widget_DistinctivePixels_Section_Title_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Section Title Content', 'tr-framework' ),
+				'label' => esc_html__( 'Section Title Content', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Layout', 'tr-framework' ),
+				'label'   => __( 'Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'centered',
 				'label_block' => true,
 				'options' => [
-					'centered'          	=> esc_html__( 'Centered', 'tr-framework' ),
-					'left'					=> esc_html__( 'Left', 'tr-framework' ),
+					'centered'          	=> esc_html__( 'Centered', 'distinctivepixels-core' ),
+					'left'					=> esc_html__( 'Left', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$this->add_control(
 			'upper_text', [
-				'label'       => __( 'Upper Text', 'tr-framework' ),
+				'label'       => __( 'Upper Text', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -56,7 +56,7 @@ class Widget_DistinctivePixels_Section_Title_Block extends Widget_Base {
 
 		$this->add_control(
 			'title', [
-				'label'       => __( 'Title', 'tr-framework' ),
+				'label'       => __( 'Title', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -64,7 +64,7 @@ class Widget_DistinctivePixels_Section_Title_Block extends Widget_Base {
 
 		$this->add_control(
 			'description', [
-				'label'       => __( 'Description', 'tr-framework' ),
+				'label'       => __( 'Description', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]

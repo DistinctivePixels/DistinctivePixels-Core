@@ -8,12 +8,12 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'tommusrhodus-instagram-feed-block';
+		return 'distinctivepixels-instagram-feed-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Instagram Feed', 'tr-framework' );
+		return esc_html__( 'Instagram Feed', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,27 +29,27 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Content', 'tr-framework' ),
+				'label' => esc_html__( 'Content', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Layout', 'tr-framework' ),
+				'label'   => __( 'Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'simple',
 				'label_block' => true,
 				'options' => [
-					'grid'   					=> esc_html__( 'Grid', 'tr-framework' ),
-					'carousel'          		=> esc_html__( 'Carousel', 'tr-framework' ),
-					'fullwidth-carousel'   		=> esc_html__( 'Fullwidth Carousel', 'tr-framework' ),
+					'grid'   					=> esc_html__( 'Grid', 'distinctivepixels-core' ),
+					'carousel'          		=> esc_html__( 'Carousel', 'distinctivepixels-core' ),
+					'fullwidth-carousel'   		=> esc_html__( 'Fullwidth Carousel', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$this->add_control(
 			'user_id', [
-				'label'       => __( 'User ID', 'tr-framework' ),
+				'label'       => __( 'User ID', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true
@@ -58,7 +58,7 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 
 		$this->add_control(
 			'access_token', [
-				'label'       => __( 'Access Token', 'tr-framework' ),
+				'label'       => __( 'Access Token', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true
@@ -67,7 +67,7 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 
 		$this->add_control(
 			'number_of_items', [
-				'label'       => __( 'Number of items', 'tr-framework' ),
+				'label'       => __( 'Number of items', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '6',
 				'label_block' => true
@@ -76,7 +76,7 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 
 		$this->add_control(
 			'number_of_slides', [
-				'label'       => __( 'Number slides to show on Carousel?', 'tr-framework' ),
+				'label'       => __( 'Number slides to show on Carousel?', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '4',
 				'label_block' => true
@@ -85,13 +85,13 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 
 		$this->add_control(
 			'show_arrows', [
-				'label'   => __( 'Show Arrows on Carousel?', 'tr-framework' ),
+				'label'   => __( 'Show Arrows on Carousel?', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'yes',
 				'label_block' => true,
 				'options' => [
-					'data-instagram-show-arrows'		=> esc_html__( 'Show Arrows', 'tr-framework' ),
-					'no-data-instagram-show-arrows'		=> esc_html__( 'No Arrows', 'tr-framework' ),
+					'data-instagram-show-arrows'		=> esc_html__( 'Show Arrows', 'distinctivepixels-core' ),
+					'no-data-instagram-show-arrows'		=> esc_html__( 'No Arrows', 'distinctivepixels-core' ),
 				],
 			]
 		);

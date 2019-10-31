@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Progress_Circle_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Progress Circle', 'tr-framework' );
+		return esc_html__( 'Progress Circle', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -43,7 +43,7 @@ class Widget_DistinctivePixels_Progress_Circle_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'layout_section', [
-				'label' => __( 'Content', 'tr-framework' ),
+				'label' => __( 'Content', 'distinctivepixels-core' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -55,7 +55,7 @@ class Widget_DistinctivePixels_Progress_Circle_Block extends Widget_Base {
 
 		$this->add_control(
 			'perecentage', [
-				'label'       => __( 'Percentage', 'tr-framework' ),
+				'label'       => __( 'Percentage', 'distinctivepixels-core' ),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'min' => 0,
 				'max' => 100,
@@ -66,7 +66,7 @@ class Widget_DistinctivePixels_Progress_Circle_Block extends Widget_Base {
 
 		$this->add_control(
 			'title', [
-				'label'       => __( 'Percentage', 'tr-framework' ),
+				'label'       => __( 'Percentage', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true
 			]

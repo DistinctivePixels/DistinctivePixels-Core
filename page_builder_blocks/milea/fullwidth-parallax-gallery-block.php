@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Fullwidth_Parallax_Gallery_Block extends Widget_B
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Fullwidth Parallax Gallery', 'tr-framework' );
+		return esc_html__( 'Fullwidth Parallax Gallery', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,13 +29,13 @@ class Widget_DistinctivePixels_Fullwidth_Parallax_Gallery_Block extends Widget_B
 
 		$this->start_controls_section(
 			'carousel_items_section', [
-				'label' => __( 'Gallery Content', 'tr-framework' )
+				'label' => __( 'Gallery Content', 'distinctivepixels-core' )
 			]
 		); 
 
 		$this->add_control(
 			'background_image', [
-				'label'      => __( 'Background Image', 'tr-framework' ),
+				'label'      => __( 'Background Image', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -45,7 +45,7 @@ class Widget_DistinctivePixels_Fullwidth_Parallax_Gallery_Block extends Widget_B
 
 		$this->add_control(
 			'gallery_images', [
-				'label'      => __( 'Gallery Images', 'tr-framework' ),
+				'label'      => __( 'Gallery Images', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::GALLERY,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -55,7 +55,7 @@ class Widget_DistinctivePixels_Fullwidth_Parallax_Gallery_Block extends Widget_B
 
 		$this->add_control(
 			'description', [
-				'label'       => __( 'Description', 'tr-framework' ),
+				'label'       => __( 'Description', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]
@@ -63,7 +63,7 @@ class Widget_DistinctivePixels_Fullwidth_Parallax_Gallery_Block extends Widget_B
 
 		$this->add_control(
 			'button_label', [
-				'label'       => __( 'Button Label', 'tr-framework' ),
+				'label'       => __( 'Button Label', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]

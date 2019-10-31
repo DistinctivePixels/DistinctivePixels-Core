@@ -8,12 +8,12 @@ class Widget_DistinctivePixels_Maps_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'tommusrhodus-maps-block';
+		return 'distinctivepixels-maps-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Map', 'tr-framework' );
+		return esc_html__( 'Map', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,26 +29,26 @@ class Widget_DistinctivePixels_Maps_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Map Details', 'tr-framework' ),
+				'label' => esc_html__( 'Map Details', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Layout', 'tr-framework' ),
+				'label'   => __( 'Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'basic',
 				'label_block' => true,
 				'options' => [
-					'basic'          	=> esc_html__( 'Basic', 'tr-framework' ),
-					'basic-tall'		=> esc_html__( 'Basic Tall', 'tr-framework' ),
+					'basic'          	=> esc_html__( 'Basic', 'distinctivepixels-core' ),
+					'basic-tall'		=> esc_html__( 'Basic Tall', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$this->add_control(
 			'lat', [
-				'label'       => __( 'Latitude (eg 40.713750)', 'tr-framework' ),
+				'label'       => __( 'Latitude (eg 40.713750)', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '40.713750',
 				'label_block' => true
@@ -57,7 +57,7 @@ class Widget_DistinctivePixels_Maps_Block extends Widget_Base {
 
 		$this->add_control(
 			'long', [
-				'label'       => __( 'Logitude (eg -74.007590)', 'tr-framework' ),
+				'label'       => __( 'Logitude (eg -74.007590)', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '-74.007590',
 				'label_block' => true
@@ -67,7 +67,7 @@ class Widget_DistinctivePixels_Maps_Block extends Widget_Base {
 
 		$this->add_control(
 			'style_code', [
-				'label'       => __( 'Map Colour Code - Available from <a href="https://snazzymaps.com/" target="_blank">here</a>', 'tr-framework' ),
+				'label'       => __( 'Map Colour Code - Available from <a href="https://snazzymaps.com/" target="_blank">here</a>', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true
@@ -76,7 +76,7 @@ class Widget_DistinctivePixels_Maps_Block extends Widget_Base {
 
 		$this->add_control(
 			'marker_image', [
-				'label' => __( 'Choose Image', 'tr-framework' ),
+				'label' => __( 'Choose Image', 'distinctivepixels-core' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => get_template_directory_uri() .'/assets/img/pin.png',

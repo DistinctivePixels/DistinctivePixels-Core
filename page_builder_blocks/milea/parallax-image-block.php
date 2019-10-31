@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Parallax_Image_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Parallax Image', 'tr-framework' );
+		return esc_html__( 'Parallax Image', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,13 +29,13 @@ class Widget_DistinctivePixels_Parallax_Image_Block extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_content', [
-				'label' => esc_html__( 'Content', 'tr-framework' ),
+				'label' => esc_html__( 'Content', 'distinctivepixels-core' ),
 			]
 		);
 		
 		$this->add_control(
 			'image', [
-				'label'      => __( 'Image', 'tr-framework' ),
+				'label'      => __( 'Image', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -45,7 +45,7 @@ class Widget_DistinctivePixels_Parallax_Image_Block extends Widget_Base {
 
 		$this->add_control(
 			'image-offset', [
-				'label'       => __( 'Parallax Offset (eg -80)', 'tr-framework' ),
+				'label'       => __( 'Parallax Offset (eg -80)', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '-80',
 				'label_block' => true
@@ -54,7 +54,7 @@ class Widget_DistinctivePixels_Parallax_Image_Block extends Widget_Base {
 
 		$this->add_control(
 			'image-speed', [
-				'label'       => __( 'Parallax Speed (eg 0.2)', 'tr-framework' ),
+				'label'       => __( 'Parallax Speed (eg 0.2)', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '0.2',
 				'label_block' => true

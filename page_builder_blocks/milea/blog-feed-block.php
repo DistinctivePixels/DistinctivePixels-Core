@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Blog_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Blog Posts', 'tr-framework' );
+		return esc_html__( 'Blog Posts', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -43,13 +43,13 @@ class Widget_DistinctivePixels_Blog_Block extends Widget_Base {
 
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Blog Posts', 'tr-framework' ),
+				'label' => esc_html__( 'Blog Posts', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'posts_per_page', [
-				'label'   => esc_html__( 'Number of Posts', 'tr-framework' ),
+				'label'   => esc_html__( 'Number of Posts', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => '3'
 			]
@@ -57,7 +57,7 @@ class Widget_DistinctivePixels_Blog_Block extends Widget_Base {
 
 		$this->add_control(
 			'layout', [
-				'label'   => esc_html__( 'Posts Layout', 'tr-framework' ),
+				'label'   => esc_html__( 'Posts Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'card',
 				'options' => distinctivepixels_get_blog_options(),
@@ -66,19 +66,19 @@ class Widget_DistinctivePixels_Blog_Block extends Widget_Base {
 
 		$this->add_control(
 			'show_pagination', [
-				'label'   => __( 'Show Pagination?', 'tr-framework' ),
+				'label'   => __( 'Show Pagination?', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'hide',
 				'options' => [
-					'hide'          	=> esc_html__( 'Hide Pagination', 'tr-framework' ),
-					'show'         		=> esc_html__( 'Show Pagination', 'tr-framework' ),
+					'hide'          	=> esc_html__( 'Hide Pagination', 'distinctivepixels-core' ),
+					'show'         		=> esc_html__( 'Show Pagination', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$this->add_control(
 			'posts_offset', [
-				'label'   => esc_html__( 'Post Offset', 'tr-framework' ),
+				'label'   => esc_html__( 'Post Offset', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => '0'
 			]
@@ -105,7 +105,7 @@ class Widget_DistinctivePixels_Blog_Block extends Widget_Base {
 		
 			$this->add_control(
 				'filter', [
-					'label'   => esc_html__( 'Category', 'tr-framework' ),
+					'label'   => esc_html__( 'Category', 'distinctivepixels-core' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'all',
 					'options' => $final_cats,

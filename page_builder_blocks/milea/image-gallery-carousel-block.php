@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Image Gallery Carousel', 'tr-framework' );
+		return esc_html__( 'Image Gallery Carousel', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,20 +29,22 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
 		$this->start_controls_section(
 			'carousel_items_section', [
-				'label' => __( 'Gallery Content', 'tr-framework' )
+				'label' => __( 'Gallery Content', 'distinctivepixels-core' )
 			]
 		); 
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Gallery Layout', 'tr-framework' ),
+				'label'   => __( 'Gallery Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'tall-carousel',
 				'label_block' => true,
 				'options' => [
-					'tall-carousel'						=> esc_html__( 'Tall Carousel', 'tr-framework' ),
-					'fullwidth-carousel'				=> esc_html__( 'Fullwidth Carousel', 'tr-framework' ),
-					'fullwidth-lightbox-carousel'		=> esc_html__( 'Fullwidth Lightbox Carousel', 'tr-framework' ),
+					'short-carousel'					=> esc_html__( 'Short Carousel', 'distinctivepixels-core' ),
+					'regular-carousel'					=> esc_html__( 'Regular Carousel', 'distinctivepixels-core' ),
+					'tall-carousel'						=> esc_html__( 'Tall Carousel', 'distinctivepixels-core' ),
+					'fullwidth-carousel'				=> esc_html__( 'Fullwidth Carousel', 'distinctivepixels-core' ),
+					'fullwidth-lightbox-carousel'		=> esc_html__( 'Fullwidth Lightbox Carousel', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -51,7 +53,7 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
 		$repeater->add_control(
 			'image', [
-				'label'      => __( 'Gallery Image', 'tr-framework' ),
+				'label'      => __( 'Gallery Image', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -61,7 +63,7 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
 		$repeater->add_control(
 			'description', [
-				'label'       => __( 'Description', 'tr-framework' ),
+				'label'       => __( 'Description', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]
@@ -69,7 +71,7 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
 		$repeater->add_control(
 			'button_label', [
-				'label'       => __( 'Button Label', 'tr-framework' ),
+				'label'       => __( 'Button Label', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -77,9 +79,9 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
 		$repeater->add_control(
 			'button_link', [
-				'label' => __( 'Button URL', 'tr-framework' ),
+				'label' => __( 'Button URL', 'distinctivepixels-core' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => __( '#', 'tr-framework' ),
+				'placeholder' => __( '#', 'distinctivepixels-core' ),
 				'show_external' => true,
 				'default' => [
 					'url' => '',
@@ -91,24 +93,24 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
 		$repeater->add_control(
 			'item_link_target', [
-				'label'   => __( 'Link Behaviour', 'tr-framework' ),
+				'label'   => __( 'Link Behaviour', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '_self',
 				'label_block' => true,
 				'options' => [
-					'_self'			=> esc_html__( 'Open in Current Window', 'tr-framework' ),
-					'_blank'		=> esc_html__( 'Open in New Window', 'tr-framework' ),
+					'_self'			=> esc_html__( 'Open in Current Window', 'distinctivepixels-core' ),
+					'_blank'		=> esc_html__( 'Open in New Window', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$this->add_control(
 			'list', [
-				'label'   => __( 'Gallery Content', 'tr-framework' ),
+				'label'   => __( 'Gallery Content', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => [],
-				'title_field' => __( 'Carousel Content', 'tr-framework' ),
+				'title_field' => __( 'Carousel Content', 'distinctivepixels-core' ),
 			]
 		);		
 
@@ -120,7 +122,77 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 		
 		$settings = $this->get_settings_for_display();
 
-		if( 'tall-carousel' == $settings['layout'] ) {
+		if( 'short-carousel' == $settings['layout'] ) {
+
+			echo '
+				<div class="row d-block">
+                    <div class="slick-carousel" data-slick=\'{ "slidesToShow": 4, "slidesToScroll": 1, "autoplay" : true, "infinite": true, "arrows": true, "dots": false, "responsive": [{ "breakpoint": 1200, "settings": { "slidesToShow": 3 } }, { "breakpoint": 1024, "settings": { "slidesToShow": 2 } }, { "breakpoint": 767, "settings": { "slidesToShow": 1, "arrows": false } }]}\'>';
+
+			        	foreach( $settings['list'] as $item ) {
+
+			        		$image = wp_get_attachment_image_src( $item['image']['id'], 'full' );
+
+							echo '
+								<div class="plr-0">
+	                                <div class="has-static-overlay has-hover-overlay h-40" data-background-image-src="'. $image[0] .'">
+	                                    <div class="static-overlay align-items-end d-flex text-white">
+	                                        <div class="d-block pr-lg-5">
+	                                            '. $item['description'] .'';
+
+	                                            if( $item['button_label'] ) {
+	                                            	echo '<a class="btn btn-hero btn-transparent-white btn-circled mt-3" href="'. esc_url( $item['button_link']['url'] ) .'" target="'. $item['item_link_target'] .'">'. $item['button_label'] .' <i class="ml-2 la la-arrow-right"></i></a>';
+	                                            }
+	                                            	
+	                                            echo '
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+							';				
+
+						} 
+
+						echo '
+					</div>
+				</div>
+			';
+
+		} elseif( 'regular-carousel' == $settings['layout'] ) {
+
+			echo '
+				<div class="row d-block">
+                    <div class="slick-carousel" data-slick=\'{ "slidesToShow": 4, "slidesToScroll": 1, "autoplay" : true, "infinite": true, "arrows": true, "dots": false, "responsive": [{ "breakpoint": 1200, "settings": { "slidesToShow": 3 } }, { "breakpoint": 1024, "settings": { "slidesToShow": 2 } }, { "breakpoint": 767, "settings": { "slidesToShow": 1, "arrows": false } }]}\'>';
+
+			        	foreach( $settings['list'] as $item ) {
+
+			        		$image = wp_get_attachment_image_src( $item['image']['id'], 'full' );
+
+							echo '
+								<div class="plr-0">
+	                                <div class="has-static-overlay has-hover-overlay h-60" data-background-image-src="'. $image[0] .'">
+	                                    <div class="static-overlay align-items-end d-flex text-white">
+	                                        <div class="d-block pr-lg-5">
+	                                            '. $item['description'] .'';
+
+	                                            if( $item['button_label'] ) {
+	                                            	echo '<a class="btn btn-hero btn-transparent-white btn-circled mt-3" href="'. esc_url( $item['button_link']['url'] ) .'" target="'. $item['item_link_target'] .'">'. $item['button_label'] .' <i class="ml-2 la la-arrow-right"></i></a>';
+	                                            }
+	                                            	
+	                                            echo '
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+							';				
+
+						} 
+
+						echo '
+					</div>
+				</div>
+			';
+
+		} elseif( 'tall-carousel' == $settings['layout'] ) {
 
 			echo '
 				<div class="row d-block">

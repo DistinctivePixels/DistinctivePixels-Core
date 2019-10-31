@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Image Gallery', 'tr-framework' );
+		return esc_html__( 'Image Gallery', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,22 +29,22 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
 		$this->start_controls_section(
 			'carousel_items_section', [
-				'label' => __( 'Gallery Content', 'tr-framework' )
+				'label' => __( 'Gallery Content', 'distinctivepixels-core' )
 			]
 		); 
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Gallery Layout', 'tr-framework' ),
+				'label'   => __( 'Gallery Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'image-and-title-card',
 				'label_block' => true,
 				'options' => [
-					'image-and-title-card'						=> esc_html__( 'Image + Title Card', 'tr-framework' ),
-					'filterable-image-and-title-card'			=> esc_html__( 'Filterable Image + Title Card', 'tr-framework' ),
-					'filterable-image-and-title-card-2-cols'	=> esc_html__( 'Filterable Image + Title Card 2 Columns', 'tr-framework' ),
-					'custom-lightbox-grid'						=> esc_html__( 'Custom Lightbox Grid', 'tr-framework' ),
-					'custom-lightbox-grid-no-gutter'			=> esc_html__( 'Custom Lightbox Grid, No Gutter', 'tr-framework' ),
+					'image-and-title-card'						=> esc_html__( 'Image + Title Card', 'distinctivepixels-core' ),
+					'filterable-image-and-title-card'			=> esc_html__( 'Filterable Image + Title Card', 'distinctivepixels-core' ),
+					'filterable-image-and-title-card-2-cols'	=> esc_html__( 'Filterable Image + Title Card 2 Columns', 'distinctivepixels-core' ),
+					'custom-lightbox-grid'						=> esc_html__( 'Custom Lightbox Grid', 'distinctivepixels-core' ),
+					'custom-lightbox-grid-no-gutter'			=> esc_html__( 'Custom Lightbox Grid, No Gutter', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -53,7 +53,7 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'image', [
-				'label'      => __( 'Gallery Image', 'tr-framework' ),
+				'label'      => __( 'Gallery Image', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -63,7 +63,7 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'description', [
-				'label'       => __( 'Description', 'tr-framework' ),
+				'label'       => __( 'Description', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]
@@ -71,9 +71,9 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'item_link', [
-				'label' => __( 'Link Image to URL? (Used in applicable layouts)', 'tr-framework' ),
+				'label' => __( 'Link Image to URL? (Used in applicable layouts)', 'distinctivepixels-core' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => __( '#', 'tr-framework' ),
+				'placeholder' => __( '#', 'distinctivepixels-core' ),
 				'show_external' => true,
 				'default' => [
 					'url' => '',
@@ -85,34 +85,34 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'item_link_target', [
-				'label'   => __( 'Link Behaviour', 'tr-framework' ),
+				'label'   => __( 'Link Behaviour', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '_self',
 				'label_block' => true,
 				'options' => [
-					'_self'			=> esc_html__( 'Open in Current Window', 'tr-framework' ),
-					'_blank'		=> esc_html__( 'Open in New Window', 'tr-framework' ),
+					'_self'			=> esc_html__( 'Open in Current Window', 'distinctivepixels-core' ),
+					'_blank'		=> esc_html__( 'Open in New Window', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$repeater->add_control(
 			'grid_size', [
-				'label'   => __( 'Item Size (Custom Grid Only)', 'tr-framework' ),
+				'label'   => __( 'Item Size (Custom Grid Only)', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'col-md-4',
 				'label_block' => true,
 				'options' => [
-					'col-md-6'			=> esc_html__( '6/12', 'tr-framework' ),
-					'col-md-4'			=> esc_html__( '4/12', 'tr-framework' ),
-					'col-md-3'			=> esc_html__( '3/12', 'tr-framework' ),
+					'col-md-6'			=> esc_html__( '6/12', 'distinctivepixels-core' ),
+					'col-md-4'			=> esc_html__( '4/12', 'distinctivepixels-core' ),
+					'col-md-3'			=> esc_html__( '3/12', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$repeater->add_control(
 			'item_category', [
-				'label'       => __( 'Item Category? (Used for filtering)', 'tr-framework' ),
+				'label'       => __( 'Item Category? (Used for filtering)', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true
@@ -121,11 +121,11 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
 		$this->add_control(
 			'list', [
-				'label'   => __( 'Gallery Content', 'tr-framework' ),
+				'label'   => __( 'Gallery Content', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => [],
-				'title_field' => __( 'Carousel Content', 'tr-framework' ),
+				'title_field' => __( 'Carousel Content', 'distinctivepixels-core' ),
 			]
 		);		
 

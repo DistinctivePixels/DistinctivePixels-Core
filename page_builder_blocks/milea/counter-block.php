@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Counter', 'tr-framework' );
+		return esc_html__( 'Counter', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -43,19 +43,19 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'layout_section', [
-				'label' => __( 'Counter Content', 'tr-framework' ),
+				'label' => __( 'Counter Content', 'distinctivepixels-core' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
 		
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Layout', 'tr-framework' ),
+				'label'   => __( 'Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'simple',
 				'options' => [
-					'simple'      				=> esc_html__( 'Simple', 'tr-framework' ),
-					'large'				=> esc_html__( 'Large', 'tr-framework' ),
+					'simple'      				=> esc_html__( 'Simple', 'distinctivepixels-core' ),
+					'large'				=> esc_html__( 'Large', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -67,8 +67,8 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 
 		$this->add_control(
 			'icon_font', [
-				'label'   => esc_html__( 'Icon', 'tr-framework' ),
-				'type'    => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Icon', 'distinctivepixels-core' ),
+				'type'    => Controls_Manager::SELECT2,
 				'default' => '',
 				'options' => $available_icons,
 			]
@@ -76,7 +76,7 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 		
 		$this->add_control(
 			'icon', [
-				'label'      => __( 'Icon Image, Replaces Icon Font', 'tr-framework' ),
+				'label'      => __( 'Icon Image, Replaces Icon Font', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' 	 => [
 					'url' => '',
@@ -87,10 +87,10 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 		$this->add_control(
 			'is_svg',
 			[
-				'label' => __( 'Using and SVG file?', 'tr-framework' ),
+				'label' => __( 'Using and SVG file?', 'distinctivepixels-core' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'tr-framework' ),
-				'label_off' => __( 'No', 'tr-framework' ),
+				'label_on' => __( 'Yes', 'distinctivepixels-core' ),
+				'label_off' => __( 'No', 'distinctivepixels-core' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -98,7 +98,7 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 
 		$this->add_control(
 			'title', [
-				'label'       => __( 'Title', 'tr-framework' ),
+				'label'       => __( 'Title', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true
 			]
@@ -106,7 +106,7 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 
 		$this->add_control(
 			'number', [
-				'label'       => __( 'Number to Count to', 'tr-framework' ),
+				'label'       => __( 'Number to Count to', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true

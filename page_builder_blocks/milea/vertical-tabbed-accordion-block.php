@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Vertical Tabbed Accordions', 'tr-framework' );
+		return esc_html__( 'Vertical Tabbed Accordions', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,18 +29,18 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Content', 'tr-framework' ),
+				'label' => esc_html__( 'Content', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Layout', 'tr-framework' ),
+				'label'   => __( 'Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'standard',
 				'label_block' => true,
 				'options' => [
-					'standard'          	=> esc_html__( 'Standard', 'tr-framework' ),
+					'standard'          	=> esc_html__( 'Standard', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -49,7 +49,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 
 		$this->start_controls_section(
 			'slider_items_section', [
-				'label' => __( 'Accordions', 'tr-framework' )
+				'label' => __( 'Accordions', 'distinctivepixels-core' )
 			]
 		);
 
@@ -57,7 +57,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 
 		$repeater->add_control(
 			'accordion_title', [
-				'label'       => __( 'Accordion Title', 'tr-framework' ),
+				'label'       => __( 'Accordion Title', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -65,7 +65,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 
 		$repeater->add_control(
 			'content', [
-				'label'       => __( 'Accordion Content', 'tr-framework' ),
+				'label'       => __( 'Accordion Content', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]
@@ -73,7 +73,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 
 		$repeater->add_control(
 			'tab_title', [
-				'label'       => __( 'Tab Title it belongs to?', 'tr-framework' ),
+				'label'       => __( 'Tab Title it belongs to?', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -81,11 +81,11 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 
 		$this->add_control(
 			'list', [
-				'label'   => __( 'Accordion Content', 'tr-framework' ),
+				'label'   => __( 'Accordion Content', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => [],
-				'title_field' => __( 'Accordion Content', 'tr-framework' ),
+				'title_field' => __( 'Accordion Content', 'distinctivepixels-core' ),
 			]
 		);		
 

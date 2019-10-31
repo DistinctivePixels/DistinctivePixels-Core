@@ -8,12 +8,12 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'tommusrhodus-testimonial-carousel-block';
+		return 'distinctivepixels-testimonial-carousel-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Testimonial Carousel', 'tr-framework' );
+		return esc_html__( 'Testimonial Carousel', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,20 +29,20 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Testimonial Carousel Layout', 'tr-framework' ),
+				'label' => esc_html__( 'Testimonial Carousel Layout', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Layout', 'tr-framework' ),
+				'label'   => __( 'Layout', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'single-carousel',
 				'label_block' => true,
 				'options' => [
-					'single-carousel'          	=> esc_html__( 'Single Carousel', 'tr-framework' ),
-					'card-carousel'          	=> esc_html__( 'Card Carousel', 'tr-framework' ),
-					'card-single-carousel'		=> esc_html__( 'Card Single Carousel', 'tr-framework' ),
+					'single-carousel'          	=> esc_html__( 'Single Carousel', 'distinctivepixels-core' ),
+					'card-carousel'          	=> esc_html__( 'Card Carousel', 'distinctivepixels-core' ),
+					'card-single-carousel'		=> esc_html__( 'Card Single Carousel', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -51,7 +51,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 
 		$this->start_controls_section(
 			'slider_items_section', [
-				'label' => __( 'Slider Slides', 'tr-framework' )
+				'label' => __( 'Slider Slides', 'distinctivepixels-core' )
 			]
 		);
 
@@ -59,7 +59,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'image', [
-				'label'      => __( 'Slide Image', 'tr-framework' ),
+				'label'      => __( 'Slide Image', 'distinctivepixels-core' ),
 				'type'       => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -69,7 +69,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'content', [
-				'label'       => __( 'Testimonial Content', 'tr-framework' ),
+				'label'       => __( 'Testimonial Content', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'default'     => ''
 			]
@@ -77,7 +77,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'author', [
-				'label'       => __( 'Author', 'tr-framework' ),
+				'label'       => __( 'Author', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -85,7 +85,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'role', [
-				'label'       => __( 'Role', 'tr-framework' ),
+				'label'       => __( 'Role', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => ''
 			]
@@ -93,11 +93,11 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 
 		$this->add_control(
 			'list', [
-				'label'   => __( 'Slide Content', 'tr-framework' ),
+				'label'   => __( 'Slide Content', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => [],
-				'title_field' => __( 'Slide Content', 'tr-framework' ),
+				'title_field' => __( 'Slide Content', 'distinctivepixels-core' ),
 			]
 		);		
 

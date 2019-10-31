@@ -4,16 +4,16 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_DistinctivePixels_Employment_History_Block extends Widget_Base {
+class Widget_DistinctivePixels_Speaker_List_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'distinctivepixels-employment-history-block';
+		return 'distinctivepixels-speaker-list-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Employment History', 'distinctivepixels-core' );
+		return esc_html__( 'Speaker List', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -56,47 +56,45 @@ class Widget_DistinctivePixels_Employment_History_Block extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'item_title', [
-				'label'       => __( 'Title', 'distinctivepixels-core' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => '',
-				'label_block' => true
+			'image', [
+				'label'      => __( 'Speaker Image', 'distinctivepixels-core' ),
+				'type'       => Controls_Manager::MEDIA,
+				'default' 	 => '',
 			]
 		);
-		
+
 		$repeater->add_control(
-			'item_subtitle', [
-				'label'       => __( 'Subtitle', 'distinctivepixels-core' ),
-				'type'        => Controls_Manager::TEXTAREA,
+			'speaker_name', [
+				'label'       => __( 'Speaker Name', 'distinctivepixels-core' ),
+				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true
 			]
 		);
 
 		$repeater->add_control(
-			'item_description', [
+			'speaker_role', [
+				'label'       => __( 'Speaker Role', 'distinctivepixels-core' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'label_block' => true
+			]
+		);
+
+		$repeater->add_control(
+			'speaker_description', [
 				'label'       => __( 'Description', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
-				'default'     => '',
-				'label_block' => true
-			]
-		);
-
-		$repeater->add_control(
-			'item_year', [
-				'label'       => __( 'Year', 'distinctivepixels-core' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => '',
-				'label_block' => true
+				'default'     => ''
 			]
 		);
 
 		$this->add_control(
 			'list', [
-				'label'   => __( 'Processes Items', 'distinctivepixels-core' ),
+				'label'   => __( 'Speaker Items', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
-				'title_field' => __( 'Processes Item', 'distinctivepixels-core' ),
+				'title_field' => __( 'Speaker Item', 'distinctivepixels-core' ),
 			]
 		);
 
@@ -117,16 +115,20 @@ class Widget_DistinctivePixels_Employment_History_Block extends Widget_Base {
 			
 			foreach( $settings['list'] as $item ){
 				echo '
-					<a href="#" class="list-group-item list-group-item-action flex-column align-items-start card bordered mb-3">
-                        <div class="d-flex w-100 justify-content-between mb-2">
-                            <div class="pl-0 col">
-                                <h5 class="h4 mb-1">'. $item['item_title'] .'</h5>
-                                <small>'. $item['item_subtitle'] .'</small>
+					<div class="blog-block-small box-shadow box-shadow-hover mb-30 d-flex rounded">
+                        <div class="row">
+                            <div class="col-sm-4 pr-0">
+                            	'. wp_get_attachment_image( $item['image']['id'], 'full', 0, array( 'class' => 'img-fluid' ) ) .'
                             </div>
-                            <small class="font-weight-bold">'. $item['item_year'] .'</small>
+                            <div class="col py-2 align-self-center">
+                                <div>
+                                    <h6 class="author-name mb-0 font-weight-bold"><span class="mr-3">'. $item['speaker_role'] .'</span></h6>
+                                    <h5 class="h4 my-2 mb-0 d-inline-block">'. $item['speaker_name'] .'</h5>
+                                    '. $item['speaker_description'] .'
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-1">'. $item['item_description'] .'</div>
-                    </a>
+                    </div>
 				';
 				$i++;
 			}
@@ -139,4 +141,4 @@ class Widget_DistinctivePixels_Employment_History_Block extends Widget_Base {
 }
 
 // Register our new widget
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_DistinctivePixels_Employment_History_Block() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_DistinctivePixels_Speaker_List_Block() );

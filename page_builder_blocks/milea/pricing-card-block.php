@@ -8,12 +8,12 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 	
 	//Return Class Name
 	public function get_name() {
-		return 'tommusrhodus-pricing-card-block';
+		return 'distinctivepixels-pricing-card-block';
 	}
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Pricing Card', 'tr-framework' );
+		return esc_html__( 'Pricing Card', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -43,28 +43,28 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Content', 'tr-framework' ),
+				'label' => esc_html__( 'Content', 'distinctivepixels-core' ),
 			]
 		);
 
 		$this->add_control(
 			'layout', [
-				'label'   => __( 'Style', 'tr-framework' ),
+				'label'   => __( 'Style', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'card-and-feature-list',
 				'label_block' => true,
 				'options' => [
-					'card-and-feature-list'				=> esc_html__( 'Card & Feature List', 'tr-framework' ),
-					'card-and-feature-list-dark'		=> esc_html__( 'Card & Feature List, Dark Background', 'tr-framework' ),
-					'card'								=> esc_html__( 'Card', 'tr-framework' ),
-					'card-dark'							=> esc_html__( 'Card, Dark Background', 'tr-framework' ),
+					'card-and-feature-list'				=> esc_html__( 'Card & Feature List', 'distinctivepixels-core' ),
+					'card-and-feature-list-dark'		=> esc_html__( 'Card & Feature List, Dark Background', 'distinctivepixels-core' ),
+					'card'								=> esc_html__( 'Card', 'distinctivepixels-core' ),
+					'card-dark'							=> esc_html__( 'Card, Dark Background', 'distinctivepixels-core' ),
 				],
 			]
 		);
 		
 		$this->add_control(
 			'currency', [
-				'label'       => __( 'Currency', 'tr-framework' ),
+				'label'       => __( 'Currency', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '$',
 				'label_block' => true
@@ -73,7 +73,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 		
 		$this->add_control(
 			'price', [
-				'label'       => __( 'Price', 'tr-framework' ),
+				'label'       => __( 'Price', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '9',
 				'label_block' => true
@@ -82,7 +82,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 		
 		$this->add_control(
 			'title', [
-				'label'       => __( 'Title', 'tr-framework' ),
+				'label'       => __( 'Title', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'label_block' => true
@@ -91,7 +91,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 
 		$this->add_control(
 			'content', [
-				'label'       => __( 'Content', 'tr-framework' ),
+				'label'       => __( 'Content', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'default'     => ''
 			]
@@ -99,7 +99,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 
 		$this->add_control(
 			'link_text', [
-				'label'       => __( 'Link Label', 'tr-framework' ),
+				'label'       => __( 'Link Label', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => 'Choose this plan',
 				'label_block' => true
@@ -108,7 +108,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 		
 		$this->add_control(
 			'url', [
-				'label'         => esc_html__( 'Link URL', 'tr-framework' ),
+				'label'         => esc_html__( 'Link URL', 'distinctivepixels-core' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => true,
 				'default' => [
@@ -123,7 +123,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 
 		$this->start_controls_section(
 			'pricing_table_items_section', [
-				'label' => __( 'Pricing Features', 'tr-framework' )
+				'label' => __( 'Pricing Features', 'distinctivepixels-core' )
 			]
 		);
 
@@ -131,7 +131,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'item_title', [
-				'label'       => __( 'Feature Text', 'tr-framework' ),
+				'label'       => __( 'Feature Text', 'distinctivepixels-core' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => 'Unlimited projects',
 				'label_block' => true
@@ -140,24 +140,24 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 
 		$repeater->add_control(
 			'item_style', [
-				'label'   => __( 'Add tick next to feature?', 'tr-framework' ),
+				'label'   => __( 'Add tick next to feature?', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'add_tick',
 				'label_block' => true,
 				'options' => [
-					'add_tick'		=> esc_html__( 'Yes', 'tr-framework' ),
-					'no_tick'		=> esc_html__( 'No thanks', 'tr-framework' ),
+					'add_tick'		=> esc_html__( 'Yes', 'distinctivepixels-core' ),
+					'no_tick'		=> esc_html__( 'No thanks', 'distinctivepixels-core' ),
 				],
 			]
 		);
 
 		$this->add_control(
 			'list', [
-				'label'   => __( 'Pricing Features', 'tr-framework' ),
+				'label'   => __( 'Pricing Features', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => [],
-				'title_field' => __( 'Pricing Feature', 'tr-framework' ),
+				'title_field' => __( 'Pricing Feature', 'distinctivepixels-core' ),
 			]
 		);	
 
