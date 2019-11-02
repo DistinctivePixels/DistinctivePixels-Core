@@ -58,6 +58,7 @@ class Widget_DistinctivePixels_Service_Box_Block extends Widget_Base {
 					'card-icon-bg-icon-top'				=> esc_html__( 'Card with Background Icon & Icon Top', 'distinctivepixels-core' ),
 					'card-centered-icon-and-link'      	=> esc_html__( 'Card with Centered Icon & Link', 'distinctivepixels-core' ),
 					'icon-left-text-right'      		=> esc_html__( 'Icon Left & Text Right', 'distinctivepixels-core' ),
+					'simple-icon-and-text-left'      	=> esc_html__( 'Icon & Text, Left Aligned', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -254,10 +255,44 @@ class Widget_DistinctivePixels_Service_Box_Block extends Widget_Base {
             </div>
 			';
 		
+		} elseif( 'simple-icon-and-text-left' == $settings['layout'] ){
+			
+			echo '
+			<div>
+                <div class="text-left">
+                    <div class="service-icon">';
+
+						if( $settings['icon']['id']) {
+				 			echo wp_get_attachment_image( $settings['icon']['id'], 'large', 0, ['class' => $inject_svg . ' icon-primary img-fluid icon-md mb-20'] );
+				 		} else {
+				 			echo '<span class="la '. $settings['icon_font'] .' icon-primary img-fluid icon-md mb-20"></span>';
+				 		}
+
+						echo ' 
+                    </div>
+                    <div class="service-inner">
+                        <h4 class="font-weight-bold mb-15">'. $settings['title'] .'</h4>
+                        '. $settings['content'] .'
+                    </div>
+                </div>
+            </div>
+			';
+		
 		}
 		
 		if( !$user_selected_animation ){
 			echo '</div>';
+		}
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
+
+ 	 		<script>
+				jQuery(document).ready(function(){
+					initTemplateJS();
+				});
+ 	 		</script>
+
+		<?php 
 		}
 		
 	}

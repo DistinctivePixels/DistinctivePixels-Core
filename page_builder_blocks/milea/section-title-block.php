@@ -105,7 +105,7 @@ class Widget_DistinctivePixels_Section_Title_Block extends Widget_Base {
 
  	 		<script>
 				jQuery(document).ready(function(){
-
+					initTemplateJS();
 				});
  	 		</script>
 

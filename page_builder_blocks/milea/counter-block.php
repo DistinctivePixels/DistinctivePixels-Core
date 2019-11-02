@@ -167,6 +167,17 @@ class Widget_DistinctivePixels_Counter_Block extends Widget_Base {
 			';
 		
 		}
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
+
+ 	 		<script>
+				jQuery(document).ready(function(){
+					initTemplateJS();
+				});
+ 	 		</script>
+
+		<?php 
+		}
 		
 	}
 

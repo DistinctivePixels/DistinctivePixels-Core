@@ -103,6 +103,17 @@ class Widget_DistinctivePixels_Triangle_Hero_Block extends Widget_Base {
                 </div>
             </section>
 		';
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
+
+ 	 		<script>
+				jQuery(document).ready(function(){
+					initTemplateJS();
+				});
+ 	 		</script>
+
+		<?php 
+		}
 		
 	}
 

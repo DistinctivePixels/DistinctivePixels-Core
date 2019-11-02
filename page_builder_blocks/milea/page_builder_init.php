@@ -116,8 +116,11 @@ class ElementorCustomElement {
 
       if(defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base')){ 
 
+        require_once plugin_dir_path(__FILE__).'accordion-block.php';
+        require_once plugin_dir_path(__FILE__).'alert-block.php';
         require_once plugin_dir_path(__FILE__).'blog-feed-block.php';
         require_once plugin_dir_path(__FILE__).'counter-block.php';
+        require_once plugin_dir_path(__FILE__).'countdown-block.php';
         require_once plugin_dir_path(__FILE__).'employment-history-list-block.php';
         require_once plugin_dir_path(__FILE__).'fullwidth-parallax-gallery-block.php';
         require_once plugin_dir_path(__FILE__).'history-carousel-block.php';
@@ -136,7 +139,9 @@ class ElementorCustomElement {
         require_once plugin_dir_path(__FILE__).'team-feed-block.php';
         require_once plugin_dir_path(__FILE__).'testimonial-carousel-block.php';
         require_once plugin_dir_path(__FILE__).'triangle-hero-block.php';
+        require_once plugin_dir_path(__FILE__).'twitter-feed-block.php';
         require_once plugin_dir_path(__FILE__).'vertical-tabbed-accordion-block.php';
+        require_once plugin_dir_path(__FILE__).'video-player-block.php';
 
       }
    }
@@ -166,4 +171,22 @@ if(!( function_exists('distinctivepixels_video_lightbox_button_shortcode') )) {
 	 
 	}
 	add_shortcode( 'distinctivepixels_video_lightbox_button', 'distinctivepixels_video_lightbox_button_shortcode' );
+}
+
+/**
+ * Login Shortcode
+ */
+if(!( function_exists('distinctivepixels_login_shortcode') )) {
+	function distinctivepixels_login_shortcode( $atts ) {
+		$find = array(
+			'button button-primary'
+		);
+		
+		$replace = array(
+			'btn-block btn btn-circled btn-black'
+		);
+		
+		return str_replace($find, $replace, wp_login_form( array( 'echo' => false ) ));
+	}
+	add_shortcode( 'distinctivepixel_login', 'distinctivepixels_login_shortcode' );
 }

@@ -205,7 +205,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 
  	 		<script>
 				jQuery(document).ready(function(){
-
+					initTemplateJS();
 				});
  	 		</script>
 

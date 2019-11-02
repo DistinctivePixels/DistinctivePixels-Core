@@ -286,9 +286,7 @@ class Widget_DistinctivePixels_Image_Gallery_Carousel_Block extends Widget_Base 
 
  	 		<script>
 				jQuery(document).ready(function(){
-
-
-
+					initTemplateJS();
 				});
  	 		</script>
 

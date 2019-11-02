@@ -4,7 +4,7 @@
 Plugin Name: DistinctivePixels Core
 Plugin URI:https://www.distinctivepixels.com
 Description: Core Framework Plugin for DistinctivePixels WordPress Themes.
-Version: 1.0
+Version: 1.0.0
 Author: DistinctivePixels
 Author URI: https://www.distinctivepixels.com
 */	

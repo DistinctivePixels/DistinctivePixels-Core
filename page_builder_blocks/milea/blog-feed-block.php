@@ -204,8 +204,7 @@ class Widget_DistinctivePixels_Blog_Block extends Widget_Base {
 
  	 		<script>
 				jQuery(document).ready(function(){
-
-					 
+					initTemplateJS();
 				});
  	 		</script>
 

@@ -119,9 +119,7 @@ class Widget_DistinctivePixels_Fullwidth_Parallax_Gallery_Block extends Widget_B
 
  	 		<script>
 				jQuery(document).ready(function(){
-
-
-
+					initTemplateJS();
 				});
  	 		</script>
 

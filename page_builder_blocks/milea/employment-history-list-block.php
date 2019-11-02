@@ -134,6 +134,17 @@ class Widget_DistinctivePixels_Employment_History_Block extends Widget_Base {
 			echo '</div>';
 			
 		} 
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
+
+ 	 		<script>
+				jQuery(document).ready(function(){
+					initTemplateJS();
+				});
+ 	 		</script>
+
+		<?php 
+		}
 			
 	}
 }

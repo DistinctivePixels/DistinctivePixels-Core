@@ -200,19 +200,19 @@ class Widget_DistinctivePixels_Team_Feed_Block extends Widget_Base {
 		                                        '. $item['description'] .'
 		                                        <ul class="list-unstyled list-inline mt-3 social-icons-list">';
 
-		                                        	if( $item['social_profile_1'] ) {
+		                                        	if( $item['social_profile_1'] !== 'None' ) {
 		                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_1'] ) .'"><i class="la '. $item['social_profile_1'] .'"></i></a></li>';
 		                                        	}
 
-		                                        	if( $item['social_profile_2'] ) {
+		                                        	if( $item['social_profile_2'] !== 'None' ) {
 		                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_2'] ) .'"><i class="la '. $item['social_profile_2'] .'"></i></a></li>';
 		                                        	}
 
-		                                        	if( $item['social_profile_3'] ) {
+		                                        	if( $item['social_profile_3'] !== 'None' ) {
 		                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_3'] ) .'"><i class="la '. $item['social_profile_3'] .'"></i></a></li>';
 		                                        	}
 
-		                                        	if( $item['social_profile_4'] ) {
+		                                        	if( $item['social_profile_4'] !== 'None' ) {
 		                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_4'] ) .'"><i class="la '. $item['social_profile_4'] .'"></i></a></li>';
 		                                        	}
 
@@ -249,19 +249,19 @@ class Widget_DistinctivePixels_Team_Feed_Block extends Widget_Base {
 		                                    '. $item['description'] .'
 		                                    <ul class="list-unstyled list-inline mt-3 social-icons-list">';
 		                                        	
-		                                    	if( $item['social_profile_1'] ) {
+		                                    	if( $item['social_profile_1'] !== 'None' ) {
 	                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_1'] ) .'"><i class="la '. $item['social_profile_1'] .'"></i></a></li>';
 	                                        	}
 
-	                                        	if( $item['social_profile_2'] ) {
+	                                        	if( $item['social_profile_2'] !== 'None' ) {
 	                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_2'] ) .'"><i class="la '. $item['social_profile_2'] .'"></i></a></li>';
 	                                        	}
 
-	                                        	if( $item['social_profile_3'] ) {
+	                                        	if( $item['social_profile_3'] !== 'None' ) {
 	                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_3'] ) .'"><i class="la '. $item['social_profile_3'] .'"></i></a></li>';
 	                                        	}
 
-	                                        	if( $item['social_profile_4'] ) {
+	                                        	if( $item['social_profile_4'] !== 'None' ) {
 	                                        		echo '<li class="list-inline-item"><a href="'. esc_url( $item['social_profile_url_4'] ) .'"><i class="la '. $item['social_profile_4'] .'"></i></a></li>';
 	                                        	}
 
@@ -286,9 +286,7 @@ class Widget_DistinctivePixels_Team_Feed_Block extends Widget_Base {
 
  	 		<script>
 				jQuery(document).ready(function(){
-
-
-
+					initTemplateJS();
 				});
  	 		</script>
 

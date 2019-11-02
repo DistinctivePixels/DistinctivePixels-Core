@@ -41,6 +41,7 @@ class Widget_DistinctivePixels_History_Carousel_Block extends Widget_Base {
 				'label_block' => true,
 				'options' => [
 					'standard'          	=> esc_html__( 'Standard', 'distinctivepixels-core' ),
+					'no-intro'          	=> esc_html__( 'No Intro Text', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -172,7 +173,93 @@ class Widget_DistinctivePixels_History_Carousel_Block extends Widget_Base {
 			                                		echo '
 			                                		<div class="col carousel-card d-flex pr-0 pr-sm-5">
 				                                        <div class="rounded d-inline-block">
-				                                        	'. wp_get_attachment_image( $item['image']['id'], 'large', 0, array( 'class' => 'img-fluid max-h-md"' ) ) .'
+				                                        	'. wp_get_attachment_image( $item['image']['id'], 'large', 0, array( 'class' => 'img-fluid max-h-md' ) ) .'
+				                                        </div>
+				                                        <div class="card bg-white d-inline-block align-self-center">
+				                                            '. $item['content'] .'
+				                                        </div>
+				                                    </div>
+			                                		';
+		                                		}
+
+		                                	}                                    
+
+		                                    echo '
+		                                </div>
+		                            </div>
+		                        </div>
+	                        ';
+
+                    		$i++;
+                    	}
+
+                    	echo '
+                    </div>
+                </div>
+			';
+
+		} elseif ( 'no-intro' == $settings['layout'] ) {
+	
+
+			$filter_categories = array();
+
+			foreach( $settings['list'] as $item ) {
+				$filter_categories[] = $item['tab_title'];				
+			}
+
+			$filters = array_unique(array_filter($filter_categories));
+
+			echo '
+                <div class="container pb-5">
+                    <div class="row">
+                    	<div class="col-md-8 offset-md-2 align-self-center">
+                            <ul class="nav nav-tabs show-1st-tab tabs-style-1 line-active tabs-center" role="tablist">';
+
+                            	$i = 0;
+                            	foreach( $filters as $filter ) {
+                            		if($i == 0) {
+						    			$active = 'active';
+						    		} else {
+						    			$active = false;
+						    		}
+                            		echo '
+                            			<li class="nav-item">
+                            				<a class="nav-link '. $active .'" href="#tab-'. sanitize_file_name( strtolower( $filter ) ) .'" role="tab" data-toggle="tab">'. $filter .'</a>
+                            			</li>
+                            		';
+                            		$i++;
+								}
+
+								echo '
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid plr-30">
+                    <div class="tab-content">';
+
+                    	$i = 0;
+                    	foreach( $filters as $filter ) {
+                    		
+                			if($i == 0) {
+				    			$active = 'active show';
+				    		} else {
+				    			$active = false;
+				    		}
+
+                			echo '
+		                        <div role="tabpanel" class="tab-pane fade '. $active .'" id="tab-'. sanitize_file_name( strtolower( $filter ) ) .'">
+		                            <div class="row d-block">
+		                                <div class="slick-carousel fw-auto-highlight buttons-inside slick-even-sm" data-slick=\'{ "variableWidth": true, "slidesToShow": 3, "slidesToScroll": 1, "infinite": true, "arrows": true, "dots": false, "responsive": [{ "breakpoint": 767, "settings": { "slidesToShow": 1, "variableWidth": false, "arrows": false, "dots": true } }]}\'>';
+
+		                                	foreach( $settings['list'] as $item ) {
+
+		                                		if( $item['tab_title'] == $filter ) {
+			                                		echo '
+			                                		<div class="col carousel-card d-flex pr-0 pr-sm-5">
+				                                        <div class="rounded d-inline-block">
+				                                        	'. wp_get_attachment_image( $item['image']['id'], 'large', 0, array( 'class' => 'img-fluid max-h-md' ) ) .'
 				                                        </div>
 				                                        <div class="card bg-white d-inline-block align-self-center">
 				                                            '. $item['content'] .'
@@ -203,7 +290,7 @@ class Widget_DistinctivePixels_History_Carousel_Block extends Widget_Base {
 
  	 		<script>
 				jQuery(document).ready(function(){
-
+					initTemplateJS();
 				});
  	 		</script>
 

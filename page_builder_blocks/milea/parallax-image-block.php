@@ -74,7 +74,18 @@ class Widget_DistinctivePixels_Parallax_Image_Block extends Widget_Base {
 				'. wp_get_attachment_image( $settings['image']['id'], 'full', 0, array( 'class' => 'img-fluid' ) ) .'
             </div>
 		';
-		
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
+
+ 	 		<script>
+				jQuery(document).ready(function(){
+					initTemplateJS();
+				});
+ 	 		</script>
+
+		<?php 
+		}
+
 	}
 
 }

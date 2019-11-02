@@ -13,7 +13,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 	
 	//Return Block Title (for blocks list)
 	public function get_title() {
-		return esc_html__( 'Testimonial Carousel', 'distinctivepixels-core' );
+		return esc_html__( 'Testimonial Block', 'distinctivepixels-core' );
 	}
 	
 	//Return Block Icon (for blocks list)
@@ -29,7 +29,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 		
 		$this->start_controls_section(
 			'section_my_custom', [
-				'label' => esc_html__( 'Testimonial Carousel Layout', 'distinctivepixels-core' ),
+				'label' => esc_html__( 'Testimonial Layout', 'distinctivepixels-core' ),
 			]
 		);
 
@@ -43,6 +43,7 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 					'single-carousel'          	=> esc_html__( 'Single Carousel', 'distinctivepixels-core' ),
 					'card-carousel'          	=> esc_html__( 'Card Carousel', 'distinctivepixels-core' ),
 					'card-single-carousel'		=> esc_html__( 'Card Single Carousel', 'distinctivepixels-core' ),
+					'card-masonry-grid'			=> esc_html__( 'Card Masonry Grid', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -237,13 +238,51 @@ class Widget_DistinctivePixels_Testimonial_Carousel_Block extends Widget_Base {
 				</div>
 			';
 		
+		} elseif ( 'card-masonry-grid' == $settings['layout'] ) {
+
+			echo '
+				<div class="row mt-5" data-isotope=\'{ "itemSelector": ".col-lg-4", "masonry": { "columnWidth": ".grid-sizer" } }\'>';
+
+			    	$i = 0;
+			    	foreach( $settings['list'] as $item ) { 
+			    		if($i == 0) {
+			    			$active = 'active';
+			    		} else {
+			    			$active = false;
+			    		}
+			    		echo '
+			    			<div class="grid-sizer col-lg-4 col-sm-6 col-md-4 mb-30">
+		                        <div class="blog-block box-shadow box-shadow-hover rounded mb-xl-0">
+		                            <div class="card testimonial-content">   
+		                                <p><i class="icofont icofont-quote-left"></i>'. do_shortcode( $item['content'] ) .'</i></p>
+		                                <div class="row mb-3">
+		                                    <div class="col-auto pr-0 align-self-center">
+		                                    	'. wp_get_attachment_image( $item['image']['id'], 'thumbnail', 0, array( 'class' => 'avatar avatar-sm d-inline img-fluid"' ) ) .'
+		                                    </div>
+		                                    <div class="col-auto align-self-center">
+		                                        <h6 class="author-name mb-0 font-weight-bold"><span class="mr-3">'. $item['role'] .'</span></h6>
+		                                        by <span class="h6 author-name font-weight-bold">'. $item['author'] .'</span>
+		                                    </div>                                            
+		                                </div>
+		                                
+		                            </div>
+		                        </div>
+		                    </div>
+				        ';
+				        $i++;
+			        }
+
+				        echo '
+				</div>
+			';
+		
 		}
 
 		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
 
  	 		<script>
 				jQuery(document).ready(function(){
-
+					initTemplateJS();
 				});
  	 		</script>
 

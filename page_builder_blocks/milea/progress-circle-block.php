@@ -105,6 +105,17 @@ class Widget_DistinctivePixels_Progress_Circle_Block extends Widget_Base {
                 <h4>'. $settings['title'] .'</h4>
             </div>
 		';
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) { ?>
+
+ 	 		<script>
+				jQuery(document).ready(function(){
+					initTemplateJS();
+				});
+ 	 		</script>
+
+		<?php 
+		}
 		
 	}
 

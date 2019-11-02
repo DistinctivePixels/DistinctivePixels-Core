@@ -192,15 +192,23 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 			$filters = array_unique(array_filter($filter_categories));
 
 			echo '
-				<div class="isotope-wrapper mb-5">
-	            	<div class="isotope-filter-wrapper text-center mb-5">
+				<div class="isotope-wrapper mb-5">';
+
+					if( $filters ) {
+
+	            		echo '<div class="isotope-filter-wrapper text-center mb-5">
 	            		<a href="#" class="btn btn-transparent-black mb-15 mb-lg-0 btn-circled" data-filter="*">All</a>';
+
 			          	foreach( $filters as $filter ) {
 			          		echo '<a href="#" class="btn btn-white btn-circled mb-15 mb-lg-0 ml-2" data-filter=".'. sanitize_file_name( strtolower( $filter ) ) .'">'. $filter .'</a>';	
 						}
 
-					echo '
-		        	</div>
+						echo '
+			        	</div>';
+
+		        	}
+
+		        	echo '
 		        	<div class="row" data-isotope=\'{ "itemSelector": ".col-lg-4", "masonry": { "columnWidth": ".grid-sizer" } }\'>
 	        	';
 
@@ -247,15 +255,24 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 			$filters = array_unique(array_filter($filter_categories));
 
 			echo '
-				<div class="isotope-wrapper mb-5">
-	            	<div class="isotope-filter-wrapper text-center mb-5">
-	            		<a href="#" class="btn btn-transparent-black mb-15 mb-lg-0 btn-circled" data-filter="*">All</a>';
+				<div class="isotope-wrapper mb-5">';
+
+					if( $filters ) {
+
+	            		echo '
+	            		<div class="isotope-filter-wrapper text-center mb-5">
+	            			<a href="#" class="btn btn-transparent-black mb-15 mb-lg-0 btn-circled" data-filter="*">All</a>';
+
 			          	foreach( $filters as $filter ) {
 			          		echo '<a href="#" class="btn btn-white btn-circled mb-15 mb-lg-0 ml-2" data-filter=".'. sanitize_file_name( strtolower( $filter ) ) .'">'. $filter .'</a>';	
 						}
 
-					echo '
-		        	</div>
+						echo '
+			        	</div>';
+
+		        	}
+
+		        	echo'
 		        	<div class="row" data-isotope=\'{ "itemSelector": ".col-lg-6", "masonry": { "columnWidth": ".grid-sizer" } }\'>
 	        	';
 
@@ -357,9 +374,7 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 
  	 		<script>
 				jQuery(document).ready(function(){
-
-
-
+					initTemplateJS();
 				});
  	 		</script>
 
