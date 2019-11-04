@@ -25,11 +25,4 @@ require_once( DISTINCTIVEPIXELS_CORE_PATH . 'core_cpts.php' );
  */
 require_once( DISTINCTIVEPIXELS_CORE_PATH . 'core_init.php' );
 
-/* Disable Elementor's getting started redirect as its interupting merlin setup */
-add_action( 'admin_init', function() {
-	if ( did_action( 'elementor/loaded' ) ) {
-		remove_action( 'admin_init', [ \Elementor\Plugin::$instance->admin, 'maybe_redirect_to_getting_started' ] );
-	}
-}, 1 );
-
 ?>
