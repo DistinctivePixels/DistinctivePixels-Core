@@ -25,28 +25,44 @@ if(!( class_exists('distinctivepixels_core_popular_posts_widget') )){
 			    	<?php 
 			    		$widget_query = new WP_Query(
 			    			array(
-			    				'post_type' => 'post',
-			    				'orderby' => 'comment_count',
-			    				'order' => 'DESC',
-			    				'posts_per_page' => $instance['amount']
+			    				'post_type' 			=> 'post',
+			    				'orderby' 				=> 'comment_count',
+			    				'order' 				=> 'DESC',
+			    				'posts_per_page' 		=> $instance['amount'],
+			    				'ignore_sticky_posts' 	=> 1
 			    			)
 			    		);
 			    		if( $widget_query->have_posts() ) : while ( $widget_query->have_posts() ): $widget_query->the_post(); 
 			    	?>
 			    	
-				    	  <li>
-				    	    <div class="post-image">
-					    	    <a href="<?php the_permalink(); ?>">
-						    	    <?php the_post_thumbnail('thumbnail'); ?>
-					    	    </a>
+			    	  	<li class="mb-15">
+				    	  	<div class="row">
+				    	  		<?php if ( has_post_thumbnail() ) { ?>
+						    	    <div class="post-image col-3">
+							    	    <a href="<?php the_permalink(); ?>">
+								    	    <?php the_post_thumbnail( 'thumbnail', array('class' => 'img-fluid rounded' )); ?>
+							    	    </a>
+						    	    </div>
+						    	    <div class="col-9 post-details d-flex pl-0">
+							    	    <div class="align-self-center">
+							    	      	<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+							    	      	<small>
+							    	      		<?php the_time( get_option('date_format') ); ?> 
+							    	      	</small>
+							    	    	</div>
+						    	     	</div>
+						    	<?php } else { ?>
+					    	    <div class="col-12 post-details d-flex">
+						    	    <div class="align-self-center">
+						    	      	<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+						    	      	<small>
+						    	      		<?php the_time( get_option('date_format') ); ?> 
+						    	      	</small>
+						    	    </div>
+					    		</div>
+					    	     <?php } ?>
 				    	    </div>
-				    	    <div class="post-details">
-				    	      <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-				    	      <small>
-				    	      	<?php the_time( get_option('date_format') ); ?> 
-				    	      </small>
-				    	    </div>
-				    	  </li>
+			    	  	</li>
 			    	              
 			    	<?php 
 			    		endwhile; 
@@ -121,26 +137,42 @@ if(!( class_exists('distinctivepixels_core_latest_posts_widget') )){
 			    	<?php 
 			    		$widget_query = new WP_Query(
 			    			array(
-			    				'post_type' => 'post',
-			    				'posts_per_page' => $instance['amount']
+			    				'post_type' 			=> 'post',
+			    				'posts_per_page' 		=> $instance['amount'],
+			    				'ignore_sticky_posts' 	=> 1
 			    			)
 			    		);
 			    		if( $widget_query->have_posts() ) : while ( $widget_query->have_posts() ): $widget_query->the_post(); 
 			    	?>
 			    	
-				    	  <li>
-				    	    <div class="post-image">
-					    	    <a href="<?php the_permalink(); ?>">
-						    	    <?php the_post_thumbnail('thumbnail'); ?>
-					    	    </a>
+				    	<li class="mb-15">
+				    	  	<div class="row">
+				    	  		<?php if ( has_post_thumbnail() ) { ?>
+						    	    <div class="post-image col-3">
+							    	    <a href="<?php the_permalink(); ?>">
+								    	    <?php the_post_thumbnail( 'thumbnail', array('class' => 'img-fluid rounded' )); ?>
+							    	    </a>
+						    	    </div>
+						    	    <div class="col-9 post-details d-flex pl-0">
+							    	    <div class="align-self-center">
+							    	      	<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+							    	      	<small>
+							    	      		<?php the_time( get_option('date_format') ); ?> 
+							    	      	</small>
+							    	    	</div>
+						    	     	</div>
+						    	<?php } else { ?>
+					    	    <div class="col-12 post-details d-flex">
+						    	    <div class="align-self-center">
+						    	      	<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+						    	      	<small>
+						    	      		<?php the_time( get_option('date_format') ); ?> 
+						    	      	</small>
+						    	    </div>
+					    		</div>
+					    	     <?php } ?>
 				    	    </div>
-				    	    <div class="post-details">
-				    	      <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-				    	      <small>
-				    	      	<?php the_time( get_option('date_format') ); ?> 
-				    	      </small>
-				    	    </div>
-				    	  </li>
+			    	  	</li>
 			    	              
 			    	<?php 
 			    		endwhile; 
@@ -187,169 +219,6 @@ if(!( class_exists('distinctivepixels_core_latest_posts_widget') )){
 	}
 	add_action( 'widgets_init', 'distinctivepixels_core_register_latest_posts_widget');
 }
-
-
-if(!( class_exists('distinctivepixels_core_latest_tweets_widget') )){
-	class distinctivepixels_core_latest_tweets_widget extends WP_Widget {
-		
-		public function __construct(){
-			parent::__construct(
-				'sc_core_latest-tweets-widget', // Base ID
-				__('SC: Latest Tweets', 'distinctivepixels-core'), // Name
-				array( 'description' => __( 'Add a simple latest tweets widget', 'distinctivepixels-core' ), ) // Args
-			);
-		}
-		
-		public function widget($args, $instance)
-		{
-			extract($args);
-			$title = apply_filters('widget_title', $instance['title']);
-	
-			echo $before_widget;
-	
-			if($title) {
-				echo  $before_title.$title.$after_title;
-			} ?>
-	
-		    <div id="sc-twitter-feed" class="sc-twitter-feed-widget" data-twitter-widget-id="<?php echo esc_attr($instance['twitter-id']); ?>" data-twitter-number-tweets="<?php echo esc_attr($instance['amount']); ?>">
-
-		    </div>
-			
-			<?php echo $after_widget;
-		}
-		
-		public function update($new_instance, $old_instance)
-		{
-			$instance = $old_instance;
-
-			$instance['twitter-id'] = $new_instance['twitter-id'];
-			$instance['title'] = strip_tags($new_instance['title']);
-			if( is_numeric($new_instance['amount']) ){
-				$instance['amount'] = $new_instance['amount'];
-			} else {
-				$new_instance['amount'] = '3';
-			}
-	
-			return $instance;
-		}
-	
-		public function form($instance)
-		{
-			$defaults = array('title' => 'Latest Tweets', 'twitter-id' => 'SiteCreateIO', 'amount' => '3');
-			$instance = wp_parse_args((array) $instance, $defaults); ?>
-			
-			<p>
-				<label for="<?php echo $this->get_field_id('title'); ?>">Title:</label><br>
-				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('twitter-id'); ?>">Twitter Username <br><small>To create a widget number Go to twitter.com and sign in as normal, go to your settings page, then go to "Widgets" on the left hand side. Create a new widget for what you need eg "user time line" or "search" etc.</small></label><br><br>
-				<input class="widefat" id="<?php echo $this->get_field_id('twitter-id'); ?>" name="<?php echo $this->get_field_name('twitter-id'); ?>" value="<?php echo $instance['twitter-id']; ?>" />
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('amount'); ?>">Number of Tweets:</label><br>
-				<input class="widefat" id="<?php echo $this->get_field_id('amount'); ?>" name="<?php echo $this->get_field_name('amount'); ?>" value="<?php echo $instance['amount']; ?>" />
-			</p>
-		<?php
-		}
-	}
-	function distinctivepixels_core_register_latest_tweets_widget(){
-	     register_widget( 'distinctivepixels_core_latest_tweets_widget' );
-	}
-	add_action( 'widgets_init', 'distinctivepixels_core_register_latest_tweets_widget');
-}
-
-
-if(!( class_exists('distinctivepixels_core_instagram_widget') )){
-	class distinctivepixels_core_instagram_widget extends WP_Widget {
-		
-		public function __construct(){
-			parent::__construct(
-				'sc_core_instagram-widget', // Base ID
-				__('SC: Instagram', 'distinctivepixels-core'), // Name
-				array( 'description' => __( 'Add a simple instagram widget', 'distinctivepixels-core' ), ) // Args
-			);
-		}
-		
-		public function widget($args, $instance)
-		{
-			extract($args);
-			$title = apply_filters('widget_title', $instance['title']);
-	
-			echo $before_widget;
-	
-			if($title) {
-				echo  $before_title.$title.$after_title;
-			} ?>
-
-			<div class="sc-insgram-feed-widget">
-		    <?php 
-		    	$username = $instance['twitter-id'];
-				$json = file_get_contents('https://www.instagram.com/'.$username.'/media/');
-				$instagram_feed_data = json_decode($json, true);
-				$i=0;
-				if (isset($instagram_feed_data['items'])) {
-				    foreach ($instagram_feed_data['items'] as $item) {
-				        $link = $item['link'];
-				        $img_url = $item['images']['low_resolution']['url'];
-				        $caption = isset($item['caption']) ? $item['caption']['text'] : '';
-				        
-				        ?>
-				        <a href="<?= $link; ?>" target="_blank" class="instagram-post">
-				            <img src="<?= $img_url; ?>">
-				        </a>
-				        <?php
-				        $i++;
-						if($i==$instance['amount']) break;
-				    }
-				} 
-			?>
-			</div>
-			
-			<?php echo $after_widget;
-		}
-		
-		public function update($new_instance, $old_instance)
-		{
-			$instance = $old_instance;
-
-			$instance['twitter-id'] = $new_instance['twitter-id'];
-			$instance['title'] = strip_tags($new_instance['title']);
-			if( is_numeric($new_instance['amount']) ){
-				$instance['amount'] = $new_instance['amount'];
-			} else {
-				$new_instance['amount'] = '3';
-			}
-	
-			return $instance;
-		}
-	
-		public function form($instance)
-		{
-			$defaults = array('title' => 'Latest Instagrams', 'twitter-id' => 'distinctivedan', 'amount' => '9');
-			$instance = wp_parse_args((array) $instance, $defaults); ?>
-			
-			<p>
-				<label for="<?php echo $this->get_field_id('title'); ?>">Title:</label><br>
-				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('twitter-id'); ?>">Instagram Username <br><small>To create a widget number Go to twitter.com and sign in as normal, go to your settings page, then go to "Widgets" on the left hand side. Create a new widget for what you need eg "user time line" or "search" etc.</small></label><br><br>
-				<input class="widefat" id="<?php echo $this->get_field_id('twitter-id'); ?>" name="<?php echo $this->get_field_name('twitter-id'); ?>" value="<?php echo $instance['twitter-id']; ?>" />
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('amount'); ?>">Number of Images (Max 20_</label><br>
-				<input class="widefat" id="<?php echo $this->get_field_id('amount'); ?>" name="<?php echo $this->get_field_name('amount'); ?>" value="<?php echo $instance['amount']; ?>" />
-			</p>
-		<?php
-		}
-	}
-	function distinctivepixels_core_register_instagram_widget(){
-	     register_widget( 'distinctivepixels_core_instagram_widget' );
-	}
-	add_action( 'widgets_init', 'distinctivepixels_core_register_instagram_widget');
-}
-
 
 /*-----------------------------------------------------------------------------------*/
 /*	CONTACT WIDGET
@@ -401,10 +270,10 @@ if(!( class_exists('distinctivepixels_social_widget') )){
 			if($subtitle)
 				echo wpautop(htmlspecialchars_decode($subtitle));
 		?>
-	    	<ul class="social">
+	    	<ul class="social-icons-list list-inline d-inline-block">
 	    		<?php
 	    			foreach( $links as $index => $link ){
-	    				echo '<li><a href="'. $link .'" target="_blank"><i class="fa fa-'. $icons[$index] .'"></i></a></li>';
+	    				echo '<li class="list-inline-item"><a href="'. $link .'" target="_blank"><i class="la la-'. $icons[$index] .'"></i></a></li>';
 	    			}
 	    		?>
 	

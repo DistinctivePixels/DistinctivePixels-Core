@@ -82,20 +82,34 @@ class Widget_DistinctivePixels_Section_Title_Block extends Widget_Base {
 		if( 'centered' == $settings['layout'] ) {
 
 			echo '
-				<div class="section-heading mb-0 text-center">
-		            <h6 class="h4 mb-3">'. $settings['upper_text'] .'</h6>
-		            <h2>'. $settings['title'] .'</h2>
-		            '. do_shortcode( $settings['description'] ) .'
+				<div class="section-heading mb-0 text-center">';
+					if ( $settings['upper_text'] ) { 
+						echo '<h6 class="h4 mb-3">'. $settings['upper_text'] .'</h6>';
+					}					
+					if ( $settings['description'] ) { 
+						echo '<h2>'. $settings['title'] .'</h2>';
+						echo do_shortcode( $settings['description'] );
+					} else {
+						echo '<h2 class="mb-0">'. $settings['title'] .'</h2>';
+					}
+					echo '
 		        </div>
 			';
 
 		} elseif( 'left' == $settings['layout'] ) {
 
 			echo '
-				<div class="section-heading plr-xs-0">
-				    <span class="line-before">'. $settings['upper_text'] .'</span>
-				    <h4 class="section-title">'. $settings['title'] .'</h4>
-				   	'. do_shortcode( $settings['description'] ) .'
+				<div class="section-heading plr-xs-0">';
+					if ( $settings['upper_text'] ) { 
+						echo '<span class="line-before">'. $settings['upper_text'] .'</span>';
+					}					
+					if ( $settings['description'] ) { 
+						echo '<h4 class="section-title">'. $settings['title'] .'</h4>';
+						echo do_shortcode( $settings['description'] );
+					} else {
+						echo '<h4 class="section-title mb-0">'. $settings['title'] .'</h4>';
+					}
+					echo '
 				</div>
 			';
 
