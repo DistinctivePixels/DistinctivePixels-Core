@@ -207,7 +207,7 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 				</div>
         	';
 
-		} elseif( 'card-and-feature-list' == $settings['layout'] ) {
+		} elseif( 'card-and-feature-list-dark' == $settings['layout'] ) {
 
 			echo '
 				<div>
