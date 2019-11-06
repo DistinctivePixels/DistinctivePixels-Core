@@ -190,3 +190,24 @@ if(!( function_exists('distinctivepixels_login_shortcode') )) {
 	}
 	add_shortcode( 'distinctivepixel_login', 'distinctivepixels_login_shortcode' );
 }
+
+if(!( function_exists( 'distinctivepixels_typed_text_shortcode' ) )) {
+	function distinctivepixels_typed_text_shortcode( $atts ) {
+	    $values = shortcode_atts( 
+	    	array(
+	        	'prefix' => '',
+	        	'heading_size' => '',
+	        	'text' => '',
+	        	'underline' => '',
+	        	'class' => '',
+	    	), 
+    	$atts );
+    	$item_text = $values['text'];
+
+    	$output = '<span class="typed-text-js '. $values['heading_size'] .' '. $values['class'] .'" data-typed-text-strings="'. $item_text .'" data-typed-text-speed="140"></span>';
+	     
+	    return $output;
+	 
+	}
+	add_shortcode( 'distinctivepixels_typed_text', 'distinctivepixels_typed_text_shortcode' );
+}
