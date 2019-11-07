@@ -124,7 +124,16 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 				'label'   => __( 'Gallery Content', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
-				'default' => [],
+				'default' => [
+					[ 
+						'image' 			=> '', 
+						'description' 		=> '' , 
+						'item_link' 		=> '' , 
+						'item_link_target' 	=> '' , 
+						'grid_size' 		=> '' , 
+						'item_category' 	=> '' 
+					],
+				],
 				'title_field' => __( 'Carousel Content', 'distinctivepixels-core' ),
 			]
 		);		

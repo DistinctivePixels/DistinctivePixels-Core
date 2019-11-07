@@ -54,7 +54,7 @@ if( '1' == $framework_options['testimonial_post_type'] ){
 }
 
 if( '1' == $framework_options['milea_blocks'] ){
-	require_once(DISTINCTIVEPIXELS_CORE_PATH . 'page_builder_blocks/milea/page_builder_init.php' );	
+	require_once(DISTINCTIVEPIXELS_CORE_PATH . 'page_builder_blocks/milea/functions.php' );	
 }
 
 ?>

@@ -211,3 +211,42 @@ if(!( function_exists( 'distinctivepixels_typed_text_shortcode' ) )) {
 	}
 	add_shortcode( 'distinctivepixels_typed_text', 'distinctivepixels_typed_text_shortcode' );
 }
+
+/**
+ * Add additional settings to gallery shortcode
+ */
+if(!( function_exists('distinctivepixels_add_gallery_settings') )){ 
+	function distinctivepixels_add_gallery_settings(){
+?>
+	
+		<script type="text/html" id="tmpl-milea-gallery-setting">
+			<div class="clear"></div>
+			<h3>Milea Theme Gallery Settings</h3>
+			<label class="setting">
+				<span><?php esc_html_e( 'Gallery Layout', 'milea' ); ?></span>
+				<select data-setting="layout">
+					<option value="default">Default Layout</option>    
+					<option value="1-column-lightbox-grid">1 Column Lightbox Grud</option>
+					<option value="2-column-lightbox-grid">2 Column Lightbox Grud</option>
+					<option value="3-column-lightbox-grid">3 Column Lightbox Grud</option>
+				</select>
+			</label>
+		</script>
+	
+		<script>
+			jQuery(document).ready(function(){
+				jQuery.extend(wp.media.gallery.defaults, { layout: 'default' });
+				
+				wp.media.view.Settings.Gallery = wp.media.view.Settings.Gallery.extend({
+					template: function(view){
+					  return wp.media.template('gallery-settings')(view)
+					       + wp.media.template('milea-gallery-setting')(view);
+					}
+				});
+			});
+		</script>
+	  
+<?php
+	}
+	add_action('print_media_templates', 'distinctivepixels_add_gallery_settings');
+}

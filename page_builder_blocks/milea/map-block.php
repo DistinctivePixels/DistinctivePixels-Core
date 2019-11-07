@@ -96,13 +96,13 @@ class Widget_DistinctivePixels_Maps_Block extends Widget_Base {
 		if( 'basic' == $settings['layout'] ) {
 
 			echo '
-				<div class="map-js h-50 rounded" data-map-style=\''. $settings['style_code'] .'\' data-map-latitude="'. $settings['lat'] .'" data-map-latitude="'. $settings['data-map-longitude'] .'" data-marker-image="'. $settings['marker_image']['url'] .'"></div> 
+				<div class="map-js h-50 rounded" data-map-style=\''. $settings['style_code'] .'\' data-map-latitude="'. $settings['lat'] .'" data-map-longitude="'. $settings['long'] .'" data-marker-image="'. $settings['marker_image']['url'] .'"></div> 
 	    	';
 			
 		} elseif( 'basic-tall' == $settings['layout'] ) {
 
 			echo '
-				<div class="map-js h-80" data-map-style=\''. $settings['style_code'] .'\' data-map-latitude="'. $settings['lat'] .'" data-map-latitude="'. $settings['data-map-longitude'] .'" data-marker-image="'. $settings['marker_image']['url'] .'"></div> 
+				<div class="map-js h-80" data-map-style=\''. $settings['style_code'] .'\' data-map-latitude="'. $settings['lat'] .'" data-map-longitude="'. $settings['long'] .'" data-marker-image="'. $settings['marker_image']['url'] .'"></div> 
 	    	';
 			
 		}

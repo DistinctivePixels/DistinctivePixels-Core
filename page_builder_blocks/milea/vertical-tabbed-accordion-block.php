@@ -166,7 +166,7 @@ class Widget_DistinctivePixels_Vertical_Tabbed_Accordion_Block extends Widget_Ba
 			                                		
 			                                		echo '
 			                                		<article class="card mb-4 box-shadow-hover rounded box-shadow">
-		                                                <div class="accordion-header" id="accordion-'.$i.'-collapse-'.$x.'" role="tab">
+		                                                <div class="accordion-header" id="accordion-heading-'.$i.'-collapse-'.$x.'" role="tab">
 		                                                    <h5 class="mb-0 card-title">
 		                                                        <a class="card-link" role="button" data-toggle="collapse" href="#accordion-'.$i.'-collapse-'.$x.'" aria-controls="accordion-'.$i.'-collapse-'.$x.'" aria-expanded="'.$expanded.'">'. $item['accordion_title'] .'
 		                                                        <span class="card-arrow"><i class="la la-arrow-down"></i></span></a>

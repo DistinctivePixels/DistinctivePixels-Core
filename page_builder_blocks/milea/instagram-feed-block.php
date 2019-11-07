@@ -87,11 +87,11 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 			'show_arrows', [
 				'label'   => __( 'Show Arrows on Carousel?', 'distinctivepixels-core' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'yes',
+				'default' => 'data-instagram-show-arrows',
 				'label_block' => true,
 				'options' => [
 					'data-instagram-show-arrows'		=> esc_html__( 'Show Arrows', 'distinctivepixels-core' ),
-					'no-data-instagram-show-arrows'		=> esc_html__( 'No Arrows', 'distinctivepixels-core' ),
+					'data-no-instagram-show-arrows'		=> esc_html__( 'No Arrows', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -135,7 +135,7 @@ class Widget_DistinctivePixels_Instagram_Feed_Block extends Widget_Base {
 
  	 		<script>
 				jQuery(document).ready(function(){
-					initTemplateJS();
+					//initTemplateJS();
 				});
  	 		</script>
 
