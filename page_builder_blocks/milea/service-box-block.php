@@ -56,6 +56,7 @@ class Widget_DistinctivePixels_Service_Box_Block extends Widget_Base {
 				'options' => [
 					'card-icon-bg'      				=> esc_html__( 'Card with Background Icon', 'distinctivepixels-core' ),
 					'card-icon-bg-icon-top'				=> esc_html__( 'Card with Background Icon & Icon Top', 'distinctivepixels-core' ),
+					'card-icon-bg-icon-top-no-shadow'	=> esc_html__( 'Card with Background Icon & Icon Top, No Shadow', 'distinctivepixels-core' ),
 					'card-centered-icon-and-link'      	=> esc_html__( 'Card with Centered Icon & Link', 'distinctivepixels-core' ),
 					'icon-left-text-right'      		=> esc_html__( 'Icon Left & Text Right', 'distinctivepixels-core' ),
 					'simple-icon-and-text-left'      	=> esc_html__( 'Icon & Text, Left Aligned', 'distinctivepixels-core' ),
@@ -190,6 +191,35 @@ class Widget_DistinctivePixels_Service_Box_Block extends Widget_Base {
 			echo '
 			<div>
 				<div class="service-box text-left box-shadow box-shadow-hover o-hidden">';
+
+					if( $settings['icon']['id']) {
+		 			echo wp_get_attachment_image( $settings['icon']['id'], 'large', 0, ['class' => $inject_svg . ' icon-primary img-fluid service-bg-icon'] );
+			 		} else {
+			 			echo '<span class="la '. $settings['icon_font'] .' icon-primary img-fluid service-bg-icon"></span>';
+			 		}
+
+			 		echo '
+				    <div class="service-inner">';
+
+					    if( $settings['icon']['id']) {
+			 			echo wp_get_attachment_image( $settings['icon']['id'], 'large', 0, ['class' => $inject_svg . ' icon-primary img-fluid mb-20 service-icon'] );
+				 		} else {
+				 			echo '<span class="la '. $settings['icon_font'] .' icon-primary img-fluid mb-20 service-icon"></span>';
+				 		}
+
+				    	echo '
+				        <h5 class="font-weight-bold mb-3">'. $settings['title'] .'</h5>
+				        '. $settings['content'] .'
+				    </div>
+				</div>
+			</div>
+			';
+		
+		} elseif( 'card-icon-bg-icon-top-no-shadow' == $settings['layout'] ){
+			
+			echo '
+			<div>
+				<div class="service-box text-left bordered box-shadow-hover o-hidden">';
 
 					if( $settings['icon']['id']) {
 		 			echo wp_get_attachment_image( $settings['icon']['id'], 'large', 0, ['class' => $inject_svg . ' icon-primary img-fluid service-bg-icon'] );

@@ -42,6 +42,7 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 				'options' => [
 					'image-and-title-card'						=> esc_html__( 'Image + Title Card', 'distinctivepixels-core' ),
 					'filterable-image-and-title-card'			=> esc_html__( 'Filterable Image + Title Card', 'distinctivepixels-core' ),
+					'filterable-image-and-title-card-no-shadow' => esc_html__( 'Filterable Image + Title Card, No Shadow', 'distinctivepixels-core' ),
 					'filterable-image-and-title-card-2-cols'	=> esc_html__( 'Filterable Image + Title Card 2 Columns', 'distinctivepixels-core' ),
 					'custom-lightbox-grid'						=> esc_html__( 'Custom Lightbox Grid', 'distinctivepixels-core' ),
 					'custom-lightbox-grid-no-gutter'			=> esc_html__( 'Custom Lightbox Grid, No Gutter', 'distinctivepixels-core' ),
@@ -226,6 +227,69 @@ class Widget_DistinctivePixels_Image_Gallery_Block extends Widget_Base {
 					echo '
 						<div class="grid-sizer col-lg-4 col-sm-6 col-md-4 mb-5 '. sanitize_file_name( strtolower( $item['item_category'] ) ) .'">
 						    <div class="box-shadow box-shadow-hover rounded">
+						        '. wp_get_attachment_image( $item['image']['id'], 'large', 0 ) .'';
+
+						        if( $item['description'] ) {
+							        echo '
+							        <div class="card"> 
+							            '. $item['description'] .'
+							        </div>';
+						        }
+
+						        if( $item['item_link']['url'] ) {	
+							    	echo '<a class="cover-link" href="'. esc_url( $item['item_link']['url'] ) .'" target="'. $item['item_link_target'] .'"></a>';
+						        }
+
+						        echo '
+						    </div>
+						</div>
+					';				
+
+				} 
+
+				echo '
+					</div>
+				</div>
+			';
+
+		} elseif( 'filterable-image-and-title-card-no-shadow' == $settings['layout'] ) {
+
+			$filter_categories = array();
+
+			foreach( $settings['list'] as $item ) {
+
+				$filter_categories[] = $item['item_category'];				
+
+			}
+
+			$filters = array_unique(array_filter($filter_categories));
+
+			echo '
+				<div class="isotope-wrapper mb-5">';
+
+					if( $filters ) {
+
+	            		echo '<div class="isotope-filter-wrapper text-center mb-5">
+	            		<a href="#" class="btn btn-transparent-black mb-15 mb-lg-0 btn-circled" data-filter="*">All</a>';
+
+			          	foreach( $filters as $filter ) {
+			          		echo '<a href="#" class="btn btn-white btn-circled mb-15 mb-lg-0 ml-2" data-filter=".'. sanitize_file_name( strtolower( $filter ) ) .'">'. $filter .'</a>';	
+						}
+
+						echo '
+			        	</div>';
+
+		        	}
+
+		        	echo '
+		        	<div class="row" data-isotope=\'{ "itemSelector": ".col-lg-4", "masonry": { "columnWidth": ".grid-sizer" } }\'>
+	        	';
+
+	        	foreach( $settings['list'] as $item ) {
+
+					echo '
+						<div class="grid-sizer col-lg-4 col-sm-6 col-md-4 mb-5 '. sanitize_file_name( strtolower( $item['item_category'] ) ) .'">
+						    <div class="box-shadow-hover rounded">
 						        '. wp_get_attachment_image( $item['image']['id'], 'large', 0 ) .'';
 
 						        if( $item['description'] ) {

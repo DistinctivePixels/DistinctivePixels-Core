@@ -55,9 +55,11 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 				'label_block' => true,
 				'options' => [
 					'card-and-feature-list'				=> esc_html__( 'Card & Feature List', 'distinctivepixels-core' ),
+					'card-and-feature-list-no-shadow'	=> esc_html__( 'Card & Feature List, No Shadow', 'distinctivepixels-core' ),
 					'card-and-feature-list-dark'		=> esc_html__( 'Card & Feature List, Dark Background', 'distinctivepixels-core' ),
 					'card'								=> esc_html__( 'Card', 'distinctivepixels-core' ),
 					'card-dark'							=> esc_html__( 'Card, Dark Background', 'distinctivepixels-core' ),
+					'card-dark-no-shadow'				=> esc_html__( 'Card, Dark Background, No Shadow', 'distinctivepixels-core' ),
 				],
 			]
 		);
@@ -207,6 +209,40 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 				</div>
         	';
 
+		} elseif( 'card-and-feature-list-no-shadow' == $settings['layout'] ) {
+
+			echo '
+				<div>
+				    <div class="card d-block pricing-block basic-pricing bg-white rounded box-shadow-hover">
+				        <div class="row">
+				            <div class="col-sm-6 align-self-center">
+				                <div class="price-header">
+				                    <span class="price h1"><small>'. $settings['currency'] .'</small>'. $settings['price'] .'</span>
+				                    <h5 class="mb-15">'. $settings['title'] .'</h5>
+				                    '. $settings['content'] .'
+				                    <a '. $link .' class="mt-4 d-block arrow-link color-primary">'. $settings['link_text'] .'<i class="la la-arrow-right ml-2"></i></a>
+				                </div>  
+				            </div>
+				            <div class="col-sm-6 align-self-center">                       
+				                <ul class="text-left">';
+
+									foreach( $settings['list'] as $item ){
+										if( 'add_tick' == $item['item_style'] ) {
+											echo '<li><i class="la la-check text-success"></i> '. $item['item_title'] .'</li>';
+										} else {
+											echo '<li>'. $item['item_title'] .'</li>';
+										}
+										
+									}
+
+				                	echo '
+				                </ul>
+				            </div>
+				        </div> 
+				    </div>
+				</div>
+        	';
+
 		} elseif( 'card-and-feature-list-dark' == $settings['layout'] ) {
 
 			echo '
@@ -265,6 +301,25 @@ class Widget_DistinctivePixels_Pricing_Card_Block extends Widget_Base {
 			echo '
 				<div class="d-flex h-100-pc">
                     <div class="card flex pricing-block basic-pricing box-shadow rounded bg-feature text-white flex-grow-1 justify-content-around box-shadow-hover">
+                        <div class="row">
+                            <div class="col-sm-12 align-self-center">
+                                <div class="price-header">
+                                    <span class="price h1"><small>'. $settings['currency'] .'</small>'. $settings['price'] .'</span>
+                                    <h5 class="mb-15">'. $settings['title'] .'</h5>
+                                    '. $settings['content'] .'
+                                    <a '. $link .' class="mt-4 d-block arrow-link color-primary">'. $settings['link_text'] .'<i class="la la-arrow-right ml-2"></i></a>
+                                </div>  
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+        	';
+
+		} elseif( 'card-dark-no-shadow' == $settings['layout'] ) {
+
+			echo '
+				<div class="d-flex h-100-pc">
+                    <div class="card flex pricing-block basic-pricing rounded bg-feature text-white flex-grow-1 justify-content-around box-shadow-hover">
                         <div class="row">
                             <div class="col-sm-12 align-self-center">
                                 <div class="price-header">

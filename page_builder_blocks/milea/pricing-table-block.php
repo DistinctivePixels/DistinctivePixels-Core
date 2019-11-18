@@ -193,14 +193,14 @@ class Widget_DistinctivePixels_Pricing_Table_Block extends Widget_Base {
 								if( 'add_tick' == $item['item_style'] ) {
 									echo '<li><i class="la la-check text-success"></i> '. $item['item_title'] .'</li>';
 								} else {
-									echo '<li>'. $item['item_title'] .'</li>';
+									echo '<li><i class="la la-close text-danger"></i>'. $item['item_title'] .'</li>';
 								}
 								
 							}
 
 							echo '
                         </ul>
-                        <a '. $link .' class="btn btn-block btn-hero btn-circled">'. $settings['button_text'] .'</a>
+                        <a '. $link .' class="btn btn-block btn-hero btn-circled"> '. $settings['button_text'] .'</a>
                     </div>
                 </div>	
 			';
@@ -223,7 +223,7 @@ class Widget_DistinctivePixels_Pricing_Table_Block extends Widget_Base {
 									if( 'add_tick' == $item['item_style'] ) {
 										echo '<li><i class="la la-check text-success"></i> '. $item['item_title'] .'</li>';
 									} else {
-										echo '<li>'. $item['item_title'] .'</li>';
+										echo '<li><i class="la la-close text-danger"></i> '. $item['item_title'] .'</li>';
 									}
 									
 								}
